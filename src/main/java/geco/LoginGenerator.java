@@ -37,8 +37,17 @@ public class LoginGenerator {
         String p = deAccent(prenom.substring(0,1).toUpperCase());
         String n = deAccent(nom.substring(0,3).toUpperCase());
         String login = p+n ;
+        /* If the login conflicts with a previously added login then we
+           add a numeric suffix */
         if (loginService.loginExists(login)) {
-            login = login + "1" ;
+            String loginWithSuffix;
+            for (int i = 1;; i++) {
+                if (!loginService.loginExists(login + i)) {
+                    loginWithSuffix = login + i;
+                    break;
+                }
+            }
+            login = loginWithSuffix;
         }
         loginService.addLogin(login);
         return login;
