@@ -6,7 +6,7 @@
 
   <groupId>geco</groupId>
   <artifactId>login-generator</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.1.1</version>
 
   <name>login-generator</name>
   <url>http://www.login-generator.com</url>
