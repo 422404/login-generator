@@ -56,4 +56,17 @@ public class LoginGeneratorTest {
         // THEN
         assertEquals(true, pdurExists);
     }
+
+    /**
+     * Les noms utilisateurs de moins de 3 caractères ne doivent pas empêcher
+     * la génération du login.
+     */
+    @Test
+    public void testNomMoinsDe3Caracteres() {
+        // WHEN
+        loginGenerator.generateLoginForNomAndPrenom("Du", "Paul");
+        boolean pduExists = loginService.loginExists("PDU");
+        // THEN
+        assertEquals(true, pduExists);
+    }
 }
